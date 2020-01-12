@@ -21,7 +21,7 @@
 |--------------------------------------------------------------------------
 |
 */
-    Route::get('admin/singin', 'AdminController@singin');
+    Route::get('admin/login', 'AdminController@login');
     Route::get('admin/home', 'AdminController@index');
     Route::get('admin/activities', 'ActivitiesController@activities');
     Route::get('admin/beaches', 'BeachesController@beaches');
