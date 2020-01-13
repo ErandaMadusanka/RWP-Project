@@ -25,7 +25,6 @@
                             <div class="form-group">
                                     <label for="exampleDropdownFormPassword2">Password</label>
                                     <input type="password" class="form-control" id="password-field" placeholder="Password">
-                                    {{-- <input id="password-field" type="password" class="form-control" name="password" > --}}
                                     <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                                 </div>
                             <div class="form-group">
@@ -38,6 +37,7 @@
                             </div>
                             <button type="submit" class="btn btn-primary">Log in</button>
                         </form>
+                        <p class="loginfooter">Travel Srilanka</p>
                 </div>
             </div>
             </div>
