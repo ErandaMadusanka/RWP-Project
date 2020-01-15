@@ -49,8 +49,16 @@ body {
     margin-top: -25px;
     position: relative;
     z-index: 2;
-  }
- .loginfooter{
-  margin-top: 120px;
+}
+ .footer{
+  margin-top: 55px;
   text-align: center;
  }
+.message{
+  height: 55px;
+  margin-top: 10px;
+}
+#mm{
+  height: 46px;
+  text-align: center;
+}

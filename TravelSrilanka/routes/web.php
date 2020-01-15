@@ -21,13 +21,27 @@
 |--------------------------------------------------------------------------
 |
 */
-    Route::get('admin/login', 'AdminController@login');
-    Route::get('admin/home', 'AdminController@index');
-    Route::get('admin/activities', 'ActivitiesController@activities');
-    Route::get('admin/beaches', 'BeachesController@beaches');
-    Route::get('admin/events', 'EventsController@events');
-    Route::get('admin/places', 'PlacesController@places');
-    Route::get('admin/tourpackages', 'TourPackagesController@tourpackages');
+    // Show Register Page & Login Page
+    Route::get('/login', 'LoginController@show')->name('login')->middleware('guest');
+    Route::get('/register', 'RegistrationController@show')->name('register')->middleware('guest');
+
+    // Register & Login User
+    Route::post('/login', 'LoginController@authenticate')->name('login_auth');
+    Route::post('/register', 'RegistrationController@register');
+
+    // Protected Routes - allows only logged in users
+    Route::middleware('auth')->group(function () {
+        
+        Route::prefix('admin')->group(function(){
+            Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+            Route::get('/activities', 'ActivitiesController@activities');
+            Route::get('/beaches', 'BeachesController@beaches');
+            Route::get('/events', 'EventsController@events');
+            Route::get('/places', 'PlacesController@places');
+            Route::get('/tourpackages', 'TourPackagesController@tourpackages');
+        });
+        Route::post('/logout', 'LoginController@logout')->name('logout');
+    });
 
     /*
 |--------------------------------------------------------------------------

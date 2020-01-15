@@ -65,7 +65,17 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
+            <div class="content">
+                <div id="home" class="title m-b-md">
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <script type="text/javascript"src="js/app.js"></script> 
+
+</html>
+{{-- @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
@@ -77,15 +87,4 @@
                         @endif
                     @endauth
                 </div>
-            @endif
-
-            <div class="content">
-                <div id="home" class="title m-b-md">
-                </div>
-            </div>
-        </div>
-    </body>
-
-    <script type="text/javascript"src="js/app.js"></script> 
-
-</html>
+            @endif --}}
