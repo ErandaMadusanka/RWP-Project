@@ -27,6 +27,7 @@ class LoginController extends Controller
 
     public function authenticate(LoginRequest $requestFields){
         $attributes = $requestFields->only(['email','password']);
+        
         if(Auth::attempt($attributes)){
             return redirect()->route('dashboard');
         }

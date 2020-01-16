@@ -8,3 +8,12 @@ $(".toggle-password").click(function() {
       input.attr("type", "password");
     }
   });
+
+
+  function checkForm(form){
+    if(form.password.value.length < 6) {
+      alert("Error: Password must contain at least six characters!");
+      form.password.focus();
+      return false;
+    }
+  }

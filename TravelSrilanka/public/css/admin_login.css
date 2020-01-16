@@ -54,11 +54,7 @@ body {
   margin-top: 55px;
   text-align: center;
  }
-.message{
-  height: 55px;
-  margin-top: 10px;
+.errorMessege{
+  color: #FF0000;
 }
-#mm{
-  height: 46px;
-  text-align: center;
-}
+

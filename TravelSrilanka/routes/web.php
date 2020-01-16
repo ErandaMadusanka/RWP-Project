@@ -22,12 +22,12 @@
 |
 */
     // Show Register Page & Login Page
-    Route::get('/login', 'LoginController@show')->name('login')->middleware('guest');
-    Route::get('/register', 'RegistrationController@show')->name('register')->middleware('guest');
+    Route::get('admin/login', 'LoginController@show')->name('login')->middleware('guest');
+    Route::get('admin/register', 'RegistrationController@show')->name('register')->middleware('guest');
 
     // Register & Login User
-    Route::post('/login', 'LoginController@authenticate')->name('login_auth');
-    Route::post('/register', 'RegistrationController@register');
+    Route::post('admin/login', 'LoginController@authenticate');
+    Route::post('admin/register', 'RegistrationController@register');
 
     // Protected Routes - allows only logged in users
     Route::middleware('auth')->group(function () {
