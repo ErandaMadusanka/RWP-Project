@@ -37,7 +37,7 @@ class LoginController extends Controller
     }
 
    public function logout(){
-       Session::flush('message', 'Some goodbye message');
+       Session::flush('message', 'good bye!');
        Auth::logout();
        return back();
    }

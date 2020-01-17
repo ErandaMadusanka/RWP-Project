@@ -18,6 +18,14 @@ class DatabaseSeeder extends Seeder
             'password' => 123456,
            
         ]);
+
+        \App\User::create([
+            'name' => 'Eranda Madusanka',
+            'email' => 'semsamarasinghe@gmail.com',
+            'email_verified_at' => now(),
+            'password' => 789456,
+           
+        ]);
     }
 }
 // bcrypt(123456)
