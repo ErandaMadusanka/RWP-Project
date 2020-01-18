@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePlacesTable extends Migration
+class CreateNationalParksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreatePlacesTable extends Migration
      */
     public function up()
     {
-        Schema::create('places', function (Blueprint $table) {
+        Schema::create('national_parks', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->String("name");
-            $table->String("description");
-            $table->integer("latitude");
-            $table->integer("longitude");
-            $table->String("image");
+            $table->String('description');
+            $table->Integer('latitude');
+            $table->Integer('longitude');
+            $table->Integer('contact_info');
+            $table->String('website');
             $table->BigInteger('user_id');
             $table->BigInteger('city_id');
             $table->timestamps();
@@ -28,10 +28,10 @@ class CreatePlacesTable extends Migration
             ->references('id')->on('users')
             ->onDelete('cascade');
 
-            $table->foreign('city_id')
+             $table->foreign('city_id')
             ->references('id')->on('cities')
             ->onDelete('cascade');
-            
+
         });
     }
 
@@ -42,6 +42,6 @@ class CreatePlacesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('places');
+        Schema::dropIfExists('national_parks');
     }
 }

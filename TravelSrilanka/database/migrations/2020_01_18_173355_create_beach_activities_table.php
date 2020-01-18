@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBeachesTable extends Migration
+class CreateBeachActivitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,24 +13,19 @@ class CreateBeachesTable extends Migration
      */
     public function up()
     {
-        Schema::create('beaches', function (Blueprint $table) {
+        Schema::create('beach_activities', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->String('name');
             $table->String('description');
-            $table->Integer('latitude');
-            $table->Integer('longitude');
+            $table->date('date');
+            $table->time('time');
             $table->String('image');
-            $table->BigInteger('user_id');
-            $table->BigInteger('city_id');
+            $table->BigInteger('beach_id');
             $table->timestamps();
 
-            $table->foreign('user_id')
-            ->references('id')->on('users')
+            $table->foreign('beach_id')
+            ->references('id')->on('beaches')
             ->onDelete('cascade');
 
-             $table->foreign('city_id')
-            ->references('id')->on('cities')
-            ->onDelete('cascade');
         });
     }
 
@@ -41,6 +36,6 @@ class CreateBeachesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('beaches');
+        Schema::dropIfExists('beach_activities');
     }
 }

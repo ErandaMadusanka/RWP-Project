@@ -15,7 +15,21 @@ class CreateTourPackagesTable extends Migration
     {
         Schema::create('tour_packages', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->String("name");
+            $table->String("description");
+            $table->String("destinations");
+            $table->String("arrival");
+            $table->String("departure");
+            $table->integer("days");
+            $table->integer("nights");
+            $table->String("image");
+            $table->integer("contact_info");
+            $table->BigInteger('user_id');
             $table->timestamps();
+
+            $table->foreign('user_id')
+            ->references('id')->on('users')
+            ->onDelete('cascade');
         });
     }
 
