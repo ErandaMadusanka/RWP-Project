@@ -8,10 +8,11 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Simple Sidebar - Start Bootstrap Template</title>
+  <title>Admin Area</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="{{url('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link rel="stylesheet" href="{{url('https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')}}"/>
 
   <!-- Custom styles for this template -->
   <link href="{{url('css/simple-sidebar.css')}}" rel="stylesheet">

@@ -20,8 +20,8 @@ class CreateBeachesTable extends Migration
             $table->Integer('latitude');
             $table->Integer('longitude');
             $table->String('image');
-            $table->BigInteger('user_id');
-            $table->BigInteger('city_id');
+            $table->BigInteger('user_id')->unsigned();
+            $table->BigInteger('city_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('user_id')

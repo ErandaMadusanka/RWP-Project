@@ -19,7 +19,7 @@ class CreateBeachActivitiesTable extends Migration
             $table->date('date');
             $table->time('time');
             $table->String('image');
-            $table->BigInteger('beach_id');
+            $table->BigInteger('beach_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('beach_id')

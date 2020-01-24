@@ -24,7 +24,7 @@ class CreateTourPackagesTable extends Migration
             $table->integer("nights");
             $table->String("image");
             $table->integer("contact_info");
-            $table->BigInteger('user_id');
+            $table->BigInteger('user_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('user_id')

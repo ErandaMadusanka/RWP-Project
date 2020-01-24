@@ -18,7 +18,7 @@ class CreateOpenHoursTable extends Migration
             $table->String('day');
             $table->String('open_time');
             $table->String('close_time');
-            $table->BigInteger('nationalPark_id');
+            $table->BigInteger('nationalPark_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('nationalPark_id')
