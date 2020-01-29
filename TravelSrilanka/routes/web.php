@@ -54,3 +54,8 @@
     Route::get('/events', 'EventsController@index');
     Route::get('/places', 'PlacesController@index');
     Route::get('/tourpackages', 'TourPackagesController@index');
+    Route::get('/nationalParks', 'NationalParkController@index');
+    
+    Route::get('/udawalwe', function () {
+        return view('single-blog');
+    });
