@@ -10,6 +10,7 @@
         <a href="http://127.0.0.1:8000/admin/beach" class="list-group-item list-group-item-action bg-light">Beaches</a>
         <a href="http://127.0.0.1:8000/admin/events" class="list-group-item list-group-item-action bg-light">Events</a>
         <a href="http://127.0.0.1:8000/admin/tourpackages" class="list-group-item list-group-item-action bg-light">Tour packeges</a>
+        <a href="http://127.0.0.1:8000/admin/nationalPark" class="list-group-item list-group-item-action bg-light">National Parks</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->

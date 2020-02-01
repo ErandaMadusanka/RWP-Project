@@ -63,6 +63,7 @@
             Route::get('/places', 'PlacesController@places');
 
             Route::get('/tourpackages', 'TourPackagesController@tourpackages');
+            Route::get('/nationalPark', 'NationalParkController@loadNationalParkDataEntryForm');
         });
         Route::post('/logout', 'LoginController@logout')->name('logout');
     });
@@ -78,3 +79,11 @@
     Route::get('/events', 'EventsController@index');
     Route::get('/places', 'PlacesController@index');
     Route::get('/tourpackages', 'TourPackagesController@index');
+    Route::get('/nationalParks', 'NationalParkController@index');
+    
+    Route::get('/udawalwe', function () {
+        return view('single-blog');
+    });
+
+    Route::post('/saveNationalParkData',"NationalParkController@storeData");
+    Route::post('nationalPark/fetch', 'NationalParkController@fetch')->name('dynamicdependent.fetch');
