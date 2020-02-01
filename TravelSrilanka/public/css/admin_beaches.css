@@ -1,20 +1,15 @@
-.container-fluid {
-    width: 100%;
-    min-height: 80vh;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
-  }
-  .wrapper{
-    width:800px;
+.wrapper{
+    width:600px;
 }
-
-/* .discription{
-    height:200px;
-} */
+.leftside, .rightside{
+  height: auto;
+  width: 100%;
+}
+@media screen and (min-width:760px){
+  .leftside, .rightside{
+    height: 93.9vh;
+  }
+}
+th, td {
+  padding: 5px;
+}

@@ -17,9 +17,10 @@ class CreateBeachesTable extends Migration
             $table->bigIncrements('id');
             $table->String('name');
             $table->String('description');
-            $table->Integer('latitude');
-            $table->Integer('longitude');
-            $table->String('image');
+            $table->String('latitude');
+            $table->String('longitude');
+            $table->String('image')->nullable();
+            // nullable() assign to foreign keys becouse it have't defalut value ,[DB CHECK]
             $table->BigInteger('user_id')->unsigned();
             $table->BigInteger('city_id')->unsigned();
             $table->timestamps();

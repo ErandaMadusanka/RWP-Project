@@ -15,9 +15,9 @@
    
     </div>
   </div>
-  <!-- /#page-content-wrapper -->
+  
 
 </div>
-  <!-- /#wrapper -->
+  
 
   @include('includes.adminFooter')

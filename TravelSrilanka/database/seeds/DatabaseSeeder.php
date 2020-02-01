@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
+
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -26,6 +28,20 @@ class DatabaseSeeder extends Seeder
             'password' => 789456,
            
         ]);
+        
+        \App\Models\Beaches::create([
+            'name' => 'Hikkaduwa',
+            'description' => 'bla bla bla',
+            'latitude' => '7.8731° N',
+            'longitude' => '80.7718° E',
+            'image' => '',
+            'user_id' => 1,
+            'city_id' => 1,
+           
+        ]);
+       
+        // 
+        
     }
 }
 // bcrypt(123456)
