@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Session;
 use App\Http\Requests\LoginRequest;
 
 
+
 class LoginController extends Controller
 {
    public function show(){

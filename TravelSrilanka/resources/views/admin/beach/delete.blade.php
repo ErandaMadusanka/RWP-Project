@@ -5,8 +5,6 @@
 
  <!--=========================================================================-->
 
-<body>
-
   <div class="container">
   <h1> Delete </h1>
   
@@ -32,11 +30,14 @@
                 <dt class = "col-sm-2"> Longitude</dt>
                 <dd class = "col-sm-10">{{$beach->longitude }}</dd>
 
-                <dt class = "col-sm-2"> image</dt>
+                <dt class = "col-sm-2"> Image</dt>
                 <dd class = "col-sm-10">{{$beach->image }}</dd>
 
-                <dt class = "col-sm-2"> province</dt>
-                <dd class = "col-sm-10">{{$beach->province }}</dd>
+                <dt class = "col-sm-2"> User</dt>
+                <dd class = "col-sm-10">{{$beach->user_name }}</dd>
+
+                <dt class = "col-sm-2"> City</dt>
+                <dd class = "col-sm-10">{{$beach->city_name }}</dd>
                
         </dl>
   </div>

@@ -18,7 +18,7 @@ class CreateBeachActivitiesTable extends Migration
             $table->String('description');
             $table->date('date');
             $table->time('time');
-            $table->String('image');
+            $table->String('image')->nullable();
             $table->BigInteger('beach_id')->unsigned();
             $table->timestamps();
 

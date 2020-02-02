@@ -3,40 +3,59 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Beaches;
+use App\City;
+// use Auth;
+
 
 class BeachesController extends Controller
 {
+    
     public function index(){
 
-        $beach =  \App\Models\Beaches::all();
+        // ->groupBy('society_reports.id')
+        // ->orderBy('society_reports.id', 'DESC')
+
+        $beach= Beaches::join('cities', 'beaches.city_id','=','cities.id' )
+        ->join('users', 'beaches.user_id','=','users.id' )
+        ->select(
+          'beaches.id',
+          'beaches.name',
+          'beaches.description',
+          'beaches.city_id',
+          'beaches.latitude',
+          'beaches.longitude',
+          'cities.city_name',
+          'users.user_name',
+        ) ->get();
         return view('admin.beach.index',['beach'=>$beach]);
 
-        // return view('admin.beach.index');
     }
     public function createView(Request $request){
-        
-        return view('admin.beach.create');
+        $cities =  City::all();
+        return view('admin.beach.create',['cities'=>$cities]);
     }
     public function create(Request $request){
         
-        $this->validate($request, [
-            'name' =>'required|min:3'
-        ]);
-        
+        // $this->validate($request, [
+        //     'name' =>'required|min:3'
+        // ]);
         $beach = new Beaches();
         $beach->create([
             'name' => $request['name'],
             'description' => $request['body'],
             'latitude' => $request['latitude'],
             'longitude' => $request['longitude'],
-            'image' => $request['image']
+            'image' => '',
+            'user_id' => auth()->id(),
+            'city_id' => $request->input('select'),
         ]);
         return redirect()->back()->with('message',' Beach add successfully.. ' );
     }
 
     public function editView($id){
-        $beach =  \App\Models\Beaches::where('id','=',$id)->get();
+        $beach =  Beaches::where('id','=',$id)->get();
         return view('admin.beach.edit',['beach'=>$beach]);
     }
 
@@ -49,21 +68,46 @@ class BeachesController extends Controller
                 'description' => $request['body'],
                 'latitude' => $request['latitude'],
                 'longitude' => $request['longitude'],
-                'image' => $request['image']
+                'image' => $request['image'],
+                'user_id' => auth()->id(),
         ]);
         return redirect()->back()->with('message',' Beach update successfully.. ' );
     }
 
     public function detailsView($id){
-        $beach =  \App\Models\Beaches::where('id','=',$id)->get();
+        $beach= Beaches::join('cities', 'beaches.city_id','=','cities.id' )
+        ->join('users', 'beaches.user_id','=','users.id' )
+        ->select(
+          'beaches.id',
+          'beaches.name',
+          'beaches.description',
+          'beaches.city_id',
+          'beaches.latitude',
+          'beaches.longitude',
+          'cities.city_name',
+          'users.user_name',
+        )->where(['beaches.id' => $id])
+        ->get();
         return view('admin.beach.details',['beach'=>$beach]);
     }
     public function deleteView($id){
-        $beach =  \App\Models\Beaches::where('id','=',$id)->get();
+        $beach= Beaches::join('cities', 'beaches.city_id','=','cities.id' )
+        ->join('users', 'beaches.user_id','=','users.id' )
+        ->select(
+          'beaches.id',
+          'beaches.name',
+          'beaches.description',
+          'beaches.city_id',
+          'beaches.latitude',
+          'beaches.longitude',
+          'cities.city_name',
+          'users.user_name',
+        )->where(['beaches.id' => $id])
+        ->get();
         return view('admin.beach.delete',['beach'=>$beach]);
     }
     public function delete($id){
-        \App\Models\Beaches::where('id', $id)->delete();
+        Beaches::where('id', $id)->delete();
         return redirect('admin/beach')->with('message', 'Beach delete succussfully..');
     }
     

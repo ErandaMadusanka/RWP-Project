@@ -52,10 +52,12 @@
             // <!----------------------------------------------------------------------------->
             Route::get('/beach/ba/', 'BeachActivityController@index');
             Route::get('/beach/ba/create', 'BeachActivityController@createView');
-            Route::post('/beach/ba/create', 'BeachActivityController@create');
-            Route::get('/beach/ba/edit', 'BeachActivityController@edit');
-            Route::get('/beach/ba/details', 'BeacheBeachActivityControllersController@details');
-            Route::get('/beach/ba/delete', 'BeachActivityController@delete');
+            Route::post('/beach/ba/create', 'BeachActivityController@create')->name('admin.beachActivity.create');
+            Route::get('/beach/ba/edit{id}', 'BeachActivityController@editView');
+            Route::post('/beach/ba/edit{id}', 'BeachActivityController@edit')->name('admin.beachActivity.edit');
+            Route::get('/beach/ba/details{id}', 'BeachActivityController@detailsView');
+            Route::get('/beach/ba/delete{id}', 'BeachActivityController@deleteView');
+            Route::get('/beach/ba/deleteconfirm{id}', 'BeachActivityController@delete')->name('admin.beachActivity.delete');
             // <!--=========================================================================-->
 
             Route::get('/events', 'EventsController@events');

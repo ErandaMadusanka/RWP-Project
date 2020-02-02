@@ -30,29 +30,26 @@
 <div class="card">
 
 <div class="card-header text-center">
-    Add Beache Activity
+    Update Beache Activity
     </div>
 
     <div class="card-body">
-    
-    <form method="post" action="{{route("admin.beachActivity.create")}}">
+      @foreach($BActivity as $BActivity)
+      <form  method="post" action="{{ route("admin.beachActivity.edit",$BActivity->id)  }}">
             @csrf
-
-            <div class="container">
-
+           
             <div class="form-group">
                     <label for="">Beach <span class="required text-danger">*</span></label>
                     <select  name="select" class="custom-select dynamic" required>
-                        <option value="" > --SELECT--</option>
-                        @foreach($beaches as $beach)
-                        <option value="{{$beach->id}}">{{$beach->name}} </option>
+                        <option value="" >{{$BActivity->name}}</option>
+                        @foreach($beaches as $beaches)
+                        <option value="{{$beaches->id}}">{{$beaches->name}} </option>
                         @endforeach
                     </select>
                 </div>
-
         <div class="form-group">
             <label>Description</label>
-            <textarea style="resize: none;"  class="form-control" type="text" name="body" rows="10"> </textarea>
+            <textarea style="resize: none;"  class="form-control" type="text" name="body" rows="10">{{$BActivity->description}}</textarea>
         </div>
         
         <div class="form-group">
@@ -60,7 +57,7 @@
                 <tr>
                     <td style="width:50%"> Date:</td>
                     <td>
-                        <input id="datepicker" width="276" name="date" required/>
+                        <input id="datepicker" width="276" name="date" value="{{$BActivity->date}}" required/>
                             <script>
                                 $('#datepicker').datepicker({
                                     uiLibrary: 'bootstrap4'
@@ -75,14 +72,14 @@
                     <tr>
                         <td>Time:</td>
                         <td>
-                            <input id="timepicker" width="276" name="time" required />
+                            <input id="timepicker" width="276" name="time" value="{{$BActivity->time}}" required />
                             <script>
                                 $('#timepicker').timepicker();
                             </script>
                         </td>    
                     </tr>
             </table>
-        </div>
+   
 
         <div>
             <table>
@@ -90,9 +87,10 @@
             </table>
         </div>
 
-        <button type="submit" class="btn btn-primary float-right">Insert</button>
+        <button type="submit" class="btn btn-primary float-right">Update</button>
 
         </form>
+        @endforeach
 
     </div>
     {{-- card-body --}}

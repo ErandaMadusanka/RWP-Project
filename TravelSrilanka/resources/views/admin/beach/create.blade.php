@@ -34,11 +34,22 @@
             <div class ="card-body">
 
             <form method="post" action="{{ route("admin.beach.create") }}">
-                   
                     @csrf
                     <div class="form-group">
+                        <label for="">City <span class="required text-danger">*</span></label>
+                        <select  name="select" class="custom-select dynamic" required>
+                            <option value="" > --SELECT--</option>
+                            @foreach($cities as $city)
+                                <option value="{{$city->id }}"> {{$city->city_name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="form-group">
                         <label>Name</label>
-                        <input class="form-control" type="text" name="name" required>   
+                        <input class="form-control" type="text" name="name" required>  
+                        <div class="valid-feedback">Valid.</div>
+		      			<div class="invalid-feedback">Please fill out this field.</div> 
                     </div>
                     
                     <div class="form-group">
