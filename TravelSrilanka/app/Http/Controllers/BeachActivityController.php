@@ -71,13 +71,7 @@ class BeachActivityController extends Controller
                 'beach_id' => $request->input('select'),
         ]);
         return redirect()->back()->with('message',' Beach update successfully.. ' );
-        // $beachActivity = BeachActivity::update([
-        //     'description' => $request['body'],
-        //     'date' => date("Y-m-d H:i:s", strtotime(request('date'))),
-        //     'time' => $request['time'],
-        //     'beach_id' => $request->input('select'),
-        //    ])->where('id','=',$id);
-        //    return redirect()->back()->with('message',' Beach activity update successfully.. ' );
+       
     }
     
     public function deleteView($id)

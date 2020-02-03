@@ -61,8 +61,6 @@ class BeachesController extends Controller
         $cities  =  City::all();
         $beaches =  Beaches::where('id','=',$id)->get();
         return view('admin.beach.edit',['beaches'=>$beaches],['cities'=>$cities]);
-        
-        // return view('admin.beach.edit',['beach'=>$beach]);
     }
 
     public function edit(Request $request, $id){

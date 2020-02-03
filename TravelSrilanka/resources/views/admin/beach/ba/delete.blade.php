@@ -1,9 +1,6 @@
 @include('includes.adminHeader')
 @include('includes.adminSidebar')
 @include('includes.adminNav')
- <!--=========================================================================-->
-
- <!--=========================================================================-->
 
   <div class="container">
     <h1> Delete </h1>

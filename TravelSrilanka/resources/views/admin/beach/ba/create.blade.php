@@ -103,7 +103,7 @@
 
 </div>
 {{-- wrapper --}}
-<a href="http://127.0.0.1:8000/admin/beach/ba">Back to List</a>
+<a href="{{ action('BeachActivityController@index') }}">Back to List</a>
 
 </div>
 {{-- right --}}

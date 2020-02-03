@@ -1,16 +1,11 @@
 @include('includes.adminHeader')
 @include('includes.adminSidebar')
 @include('includes.adminNav')
- <!--=========================================================================-->
-
- <!--=========================================================================-->
 
 <body>
 
   <div class="container">
   <h1> Beach Details </h1>
-  
-
   <div>
         <hr />
         <dl class="row">

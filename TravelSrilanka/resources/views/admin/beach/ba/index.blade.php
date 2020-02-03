@@ -1,9 +1,6 @@
 @include('includes.adminHeader')
 @include('includes.adminSidebar')
 @include('includes.adminNav')
- <!--=========================================================================-->
- <link rel="stylesheet" type="text/css" href="{{url('css/admin_beaches.css')}}">
- <!--=========================================================================-->
 
 <div class="alert d-flex justify-content-center align-items-center">
         @if(Session::has('message'))   

@@ -1,14 +1,9 @@
 @include('includes.adminHeader')
 @include('includes.adminSidebar')
 @include('includes.adminNav')
- <!--=========================================================================-->
-
- <!--=========================================================================-->
-
+ 
   <div class="container">
   <h1> Delete </h1>
-  
-
   <div>
         <h4>Are you sure you want to delete this?
                 Beach</h4>
@@ -49,8 +44,7 @@
  
 {{-- container --}}
 
-
-  @include('includes.adminFooter')
+@include('includes.adminFooter')
 
     
    

@@ -10,12 +10,12 @@ use DB;
 
 class NationalParkController extends Controller
 {
-    public function index(){
+    public function nationalPark(){
 
         return view('national_parks');
     }
 
-    public function loadNationalParkDataEntryForm()
+    public function index()
     {
     	$province_list = DB::table('provinces')
                         ->get();

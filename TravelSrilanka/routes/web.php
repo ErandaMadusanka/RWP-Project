@@ -77,7 +77,7 @@
             Route::get('/events', 'EventsController@events');
 
             Route::get('/tourpackages', 'TourPackagesController@tourpackages');
-            Route::get('/nationalPark', 'NationalParkController@loadNationalParkDataEntryForm');
+            Route::get('/nationalPark', 'NationalParkController@index');
         });
         Route::post('/logout', 'LoginController@logout')->name('logout');
     });
@@ -90,7 +90,7 @@
 */
     Route::get('/beaches', 'BeachesController@beaches');
     Route::get('/places', 'PlacesController@places');
-    Route::get('/nationalParks', 'NationalParkController@index');
+    Route::get('/nationalParks', 'NationalParkController@nationalPark');
     Route::get('/events', 'EventsController@index');
     Route::get('/tourpackages', 'TourPackagesController@index');
     Route::get('/activities', 'ActivitiesController@index');
