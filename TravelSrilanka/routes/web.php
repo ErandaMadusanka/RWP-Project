@@ -57,7 +57,7 @@
             Route::post('/beach/ba/edit{id}', 'BeachActivityController@edit')->name('admin.beachActivity.edit');
             Route::get('/beach/ba/details{id}', 'BeachActivityController@detailsView');
             Route::get('/beach/ba/delete{id}', 'BeachActivityController@deleteView');
-            Route::get('/beach/ba/deleteconfirm{id}', 'BeachActivityController@delete')->name('admin.beachActivity.delete');
+            Route::post('/beach/ba/delete{id}', 'BeachActivityController@delete')->name('admin.beachActivity.delete');
             // <!--=========================================================================-->
 
             Route::get('/events', 'EventsController@events');

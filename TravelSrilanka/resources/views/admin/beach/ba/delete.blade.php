@@ -35,7 +35,8 @@
            
         </dl>
   </div>
-  <form action="{{ route("admin.beachActivity.delete", $BActivity->id) }}">
+  <form method="post" action="{{ route("admin.beachActivity.delete", $BActivity->id) }}">
+    @CSRF
     <input type="submit" value="Delete" class="btn btn-danger" /> |
      <a href="http://127.0.0.1:8000/admin/beach/ba">Back to List</a>
 </form>
