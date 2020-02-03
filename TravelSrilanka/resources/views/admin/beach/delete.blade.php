@@ -43,7 +43,7 @@
   </div>
 <form action="{{ route("admin.beach.delete", $beach->id) }}">
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-         <a href="http://127.0.0.1:8000/admin/beach/">Back to List</a>
+        <a href="{{ action('BeachesController@index') }}">Back to List</a>
 </form>
 @endforeach
  

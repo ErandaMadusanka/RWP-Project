@@ -4,6 +4,7 @@
  <!--=========================================================================-->
  <link rel="stylesheet" type="text/css" href="{{url('css/admin_beaches.css')}}">
  <!--=========================================================================-->
+   
  <div class="alert d-flex justify-content-center align-items-center">
         @if(Session::has('message'))   
             <ul class="alert alert-success message">
@@ -27,15 +28,13 @@
     <div class="card">
 
         <div class="card-header text-center">
-            Update Beache
+            Create Place
         </div>
 
             <div class ="card-body">
-                @foreach($beaches as $beach)
-                <form  method="post" action="{{ route("admin.beach.edit",$beach->id)  }}">
-                    
-                    @csrf
 
+            <form method="post" action="{{ route("admin.place.create") }}">
+                    @csrf
                     <div class="form-group">
                         <label for="">City <span class="required text-danger">*</span></label>
                         <select  name="select" class="custom-select dynamic" required>
@@ -45,36 +44,39 @@
                             @endforeach
                         </select>
                     </div>
+
                     <div class="form-group">
                         <label>Name</label>
-                        <input class="form-control" name="name" type="text" value={{$beach->name}}>   
+                        <input class="form-control" type="text" name="name" required>  
+                        <div class="valid-feedback">Valid.</div>
+		      			<div class="invalid-feedback">Please fill out this field.</div> 
                     </div>
                     
                     <div class="form-group">
                         <label>Description</label>
-                        <textarea style="resize: none;" name="body" class="form-control" type="text" name="textarea" rows="10">{{$beach->description}}</textarea>
+                        <textarea style="resize: none;" name="body" class="form-control" type="text" name="textarea" rows="10" required>
+                        </textarea>
                     </div>
                 
                     <div class="form-group">
                     <label>Latitude</label>
-                    <input class="form-control" name="latitude" type="text" value={{$beach->latitude}}>
+                    <input class="form-control" name="latitude" type="text" required>
                     </div>
 
                     <div class="form-group">
                     <label>Logitude</label>
-                    <input class="form-control" name="longitude" type="text" value={{$beach->longitude}}>
+                    <input class="form-control" type="text" name="longitude"required >
                     </div>
 
-                    <button type="submit" class="btn btn-primary float-right">Update</button>
+                    <button type="submit" class="btn btn-primary float-right">Create</button>
 
                 </form>
-                {{-- data-validation="required" data-validation="custom" data-validation-regexp="^[a-zA-Z ]{2,30}$" --}}
-                @endforeach
+
             </div>
 
     </div>
     {{-- card --}}
-    <a href="{{ action('BeachesController@index') }}">Back to List</a>
+    <a href="{{ action('PlacesController@index') }}">Back to List</a>
 
     </div>
     {{-- wrapper --}}

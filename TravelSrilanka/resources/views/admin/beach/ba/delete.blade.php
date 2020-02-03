@@ -38,7 +38,7 @@
   <form method="post" action="{{ route("admin.beachActivity.delete", $BActivity->id) }}">
     @CSRF
     <input type="submit" value="Delete" class="btn btn-danger" /> |
-     <a href="http://127.0.0.1:8000/admin/beach/ba">Back to List</a>
+    <a href="{{ action('BeachActivityController@index') }}">Back to List</a>
 </form>
 @endforeach
 {{-- container --}}

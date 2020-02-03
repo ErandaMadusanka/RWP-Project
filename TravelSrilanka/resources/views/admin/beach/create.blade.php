@@ -76,7 +76,7 @@
 
     </div>
     {{-- card --}}
-    <a href="http://127.0.0.1:8000/admin/beach">Back to List</a>
+    <a href="{{ action('BeachesController@index') }}">Back to List</a>
 
     </div>
     {{-- wrapper --}}

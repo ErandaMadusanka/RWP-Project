@@ -23,9 +23,9 @@
     </div>
 
   <div class="container">
-  <h1> Beaches </h1>
-  <a href="{{ action('BeachesController@createView') }}">Create New</a>
-  <a href="{{ action('BeachActivityController@index') }}" class="button text-info float-right">Beach Activities</a>
+  <h1> Places </h1>
+  <a href="{{ action('PlacesController@createView') }}">Create New</a>
+ 
  
   <table class="table">
       <thead>
@@ -41,27 +41,28 @@
           </tr>
       </thead>
     </tbody>
-      @foreach($beach as $beach)
+
+    @foreach($places as $place)
       
-      <tr>
-      <td> {{$beach->id }}</td>
-      <td> {{$beach->name }}  </td>
-      <td> {{$beach->description }} </td>
-      <td> {{$beach->latitude }} </td>
-      <td> {{$beach->longitude }} </td>
-      <td> {{$beach->user_name }} </td>
-      <td> {{$beach->city_name }} </td>
-      <td class="float-right">
-          <a href ="{{ action('BeachesController@editView',$beach->id ) }}" >Edit</a> |
-          <a href ="{{ action('BeachesController@detailsView',$beach->id ) }}">Details</a> |
-          <a href ="{{ action('BeachesController@deleteView',$beach->id ) }}">Delete</a>
-      </td>
-    </tr>
- 
-    @endforeach
-  </table>
+    <tr>
+    <td> {{$place->id }}</td>
+    <td> {{$place->name }}  </td>
+    <td> {{$place->description }} </td>
+    <td> {{$place->latitude }} </td>
+    <td> {{$place->longitude }} </td>
+    <td> {{$place->user_name }} </td>
+    <td> {{$place->city_name }} </td>
+    <td class="float-right">
+        <a href ="{{ action('PlacesController@editView',$place->id ) }}" >Edit</a> |
+        <a href ="{{ action('PlacesController@detailsView',$place->id ) }}">Details</a> |
+        <a href ="{{ action('PlacesController@deleteView',$place->id ) }}">Delete</a>
+    </td>
+  </tr>
+
+  @endforeach
+</table>
 </div>
 {{-- container --}}
 
 
-  @include('includes.adminFooter')
+@include('includes.adminFooter')

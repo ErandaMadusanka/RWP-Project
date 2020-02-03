@@ -19,8 +19,8 @@
 
     <div class="container">
     <h1> Beach Activity </h1>
-    <a href="http://127.0.0.1:8000/admin/beach/ba/create">Create New</a>
-    <a href="http://127.0.0.1:8000/admin/beach" class="button text-info float-right">Beaches</a>
+    <a href="{{ action('BeachActivityController@createView') }}">Create New</a>
+    <a href="{{ action('BeachesController@index') }}" class="button text-info float-right">Beaches</a>
 
     <table class="table">
             <thead>

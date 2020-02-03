@@ -60,9 +60,21 @@
             Route::post('/beach/ba/delete{id}', 'BeachActivityController@delete')->name('admin.beachActivity.delete');
             // <!--=========================================================================-->
 
-            Route::get('/events', 'EventsController@events');
 
-            Route::get('/places', 'PlacesController@places');
+            //places
+            // <!--=========================================================================-->
+            // Route::get('/places', 'PlacesController@places');
+            Route::get('/places', 'PlacesController@index');
+            Route::get('/places/create', 'PlacesController@createView');
+            Route::post('/places/create', 'PlacesController@create')->name('admin.place.create');
+            Route::get('/places/edit/{id}', 'PlacesController@editView');
+            Route::post('/places/edit/{id}', 'PlacesController@edit')->name('admin.place.edit');
+            Route::get('/places/details/{id}', 'PlacesController@detailsView');
+            Route::get('/places/delete/{id}', 'PlacesController@deleteView');
+            Route::get('/places/deleteconfirm/{id}', 'PlacesController@delete')->name('admin.place.delete');
+            // <!--=========================================================================-->
+
+            Route::get('/events', 'EventsController@events');
 
             Route::get('/tourpackages', 'TourPackagesController@tourpackages');
             Route::get('/nationalPark', 'NationalParkController@loadNationalParkDataEntryForm');
@@ -76,12 +88,12 @@
 |--------------------------------------------------------------------------
 |
 */
-    Route::get('/activities', 'ActivitiesController@index');
-    Route::get('/beaches', 'BeachesController@index');
-    Route::get('/events', 'EventsController@index');
-    Route::get('/places', 'PlacesController@index');
-    Route::get('/tourpackages', 'TourPackagesController@index');
+    Route::get('/beaches', 'BeachesController@beaches');
+    Route::get('/places', 'PlacesController@places');
     Route::get('/nationalParks', 'NationalParkController@index');
+    Route::get('/events', 'EventsController@index');
+    Route::get('/tourpackages', 'TourPackagesController@index');
+    Route::get('/activities', 'ActivitiesController@index');
     
     Route::get('/udawalwe', function () {
         return view('single-blog');

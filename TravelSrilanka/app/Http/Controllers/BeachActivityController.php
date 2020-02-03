@@ -17,7 +17,7 @@ class BeachActivityController extends Controller
           'beach_activities.date',
           'beach_activities.time',
           'beaches.name',
-        )->get();
+        )->orderBy('beach_activities.id', 'asc')->get();
         return view('admin.beach.ba.index',['BActivity'=>$beachActivity]);
     }
 
@@ -57,16 +57,7 @@ class BeachActivityController extends Controller
     public function editView($id)
     {
         $beaches = Beaches::all();
-        $beachActivity= BeachActivity::join('beaches', 'beach_activities.beach_id','=','beaches.id' )
-        ->select(
-          'beach_activities.id',
-          'beach_activities.description',
-          'beach_activities.date',
-          'beach_activities.time',
-          'beach_activities.image',
-          'beaches.name',
-        )->where(['beach_activities.id' => $id])
-         ->get();
+        $beachActivity =  BeachActivity::where('id','=',$id)->get();
         return view('admin.beach.ba.edit',['BActivity'=>$beachActivity],['beaches'=>$beaches]);
     }
     public function edit(Request $request , $id)
@@ -88,8 +79,6 @@ class BeachActivityController extends Controller
         //    ])->where('id','=',$id);
         //    return redirect()->back()->with('message',' Beach activity update successfully.. ' );
     }
-
-
     
     public function deleteView($id)
     {

@@ -11,6 +11,9 @@ use App\City;
 
 class BeachesController extends Controller
 {
+    public function beaches(){
+        return view('beaches');
+    }
     
     public function index(){
 
@@ -28,7 +31,7 @@ class BeachesController extends Controller
           'beaches.longitude',
           'cities.city_name',
           'users.user_name',
-        ) ->get();
+        ) ->orderBy('beaches.id', 'asc')->get();
         return view('admin.beach.index',['beach'=>$beach]);
 
     }
@@ -55,8 +58,11 @@ class BeachesController extends Controller
     }
 
     public function editView($id){
-        $beach =  Beaches::where('id','=',$id)->get();
-        return view('admin.beach.edit',['beach'=>$beach]);
+        $cities  =  City::all();
+        $beaches =  Beaches::where('id','=',$id)->get();
+        return view('admin.beach.edit',['beaches'=>$beaches],['cities'=>$cities]);
+        
+        // return view('admin.beach.edit',['beach'=>$beach]);
     }
 
     public function edit(Request $request, $id){
@@ -70,6 +76,7 @@ class BeachesController extends Controller
                 'longitude' => $request['longitude'],
                 'image' => $request['image'],
                 'user_id' => auth()->id(),
+                'city_id' => $request->input('select'),
         ]);
         return redirect()->back()->with('message',' Beach update successfully.. ' );
     }

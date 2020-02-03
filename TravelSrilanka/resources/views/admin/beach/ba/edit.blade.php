@@ -41,7 +41,7 @@
             <div class="form-group">
                     <label for="">Beach <span class="required text-danger">*</span></label>
                     <select  name="select" class="custom-select dynamic" required>
-                        <option value="" >{{$BActivity->name}}</option>
+                        <option value="" >--SELECT--</option>
                         @foreach($beaches as $beaches)
                         <option value="{{$beaches->id}}">{{$beaches->name}} </option>
                         @endforeach
@@ -101,7 +101,7 @@
 
 </div>
 {{-- wrapper --}}
-<a href="http://127.0.0.1:8000/admin/beach/ba">Back to List</a>
+<a href="{{ action('BeachActivityController@index') }}">Back to List</a>
 
 </div>
 {{-- right --}}

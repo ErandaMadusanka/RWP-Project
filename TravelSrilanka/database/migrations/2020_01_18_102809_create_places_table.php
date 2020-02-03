@@ -17,9 +17,9 @@ class CreatePlacesTable extends Migration
             $table->bigIncrements('id');
             $table->String("name");
             $table->String("description");
-            $table->integer("latitude");
-            $table->integer("longitude");
-            $table->String("image");
+            $table->String("latitude");
+            $table->String("longitude");
+            $table->String("image")->nullable();
             $table->BigInteger('user_id')->unsigned();
             $table->BigInteger('city_id')->unsigned();
             $table->timestamps();

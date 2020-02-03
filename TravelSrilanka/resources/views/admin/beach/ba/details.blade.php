@@ -37,7 +37,7 @@
         </dl>
   </div>
   <a href ="{{ action('BeachActivityController@editView',$BActivity->id ) }}" method="POST" >Edit</a> |
-  <a href="http://127.0.0.1:8000/admin/beach/ba">Back to List</a>
+  <a href="{{ action('BeachActivityController@index') }}">Back to List</a>
 {{-- container --}}
 
 
