@@ -15,11 +15,10 @@ class CreateActivitiesTable extends Migration
     {
         Schema::create('activities', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->String("activity_name");
             $table->String("description");
-            $table->String("month");
-            $table->String("week");
-            $table->time("time");
             $table->date("date");
+            $table->time("time");
             $table->String("duration");
             $table->String("important_info");
             $table->String("guid_info");
@@ -34,16 +33,7 @@ class CreateActivitiesTable extends Migration
             $table->foreign('city_id')
             ->references('id')->on('cities')
             ->onDelete('cascade');
-
         });
-
-        // Schema::table('priorities', function($table) {
-        //     $table->foreign('user_id')
-        //     ->references('id')->on('users')
-        //     ->onDelete('cascade');
-        // });
-     
-     
     }
 
     /**

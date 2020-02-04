@@ -47,22 +47,22 @@
                     </div>
                     <div class="form-group">
                         <label>Name</label>
-                        <input class="form-control" name="name" type="text" value={{$place->name}}>   
+                        <input class="form-control" name="name" type="text" value={{$place->name}} required>   
                     </div>
                     
                     <div class="form-group">
                         <label>Description</label>
-                        <textarea style="resize: none;" name="body" class="form-control" type="text" name="textarea" rows="10">{{$place->description}}</textarea>
+                        <textarea style="resize: none;" name="body" class="form-control" type="text" name="textarea" rows="10" required>{{$place->description}}</textarea>
                     </div>
                 
                     <div class="form-group">
                     <label>Latitude</label>
-                    <input class="form-control" name="latitude" type="text" value={{$place->latitude}}>
+                    <input class="form-control" name="latitude" type="text" value={{$place->latitude}} required>
                     </div>
 
                     <div class="form-group">
                     <label>Logitude</label>
-                    <input class="form-control" name="longitude" type="text" value={{$place->longitude}}>
+                    <input class="form-control" name="longitude" type="text" value={{$place->longitude}} required>
                     </div>
 
                     <button type="submit" class="btn btn-primary float-right">Update</button>

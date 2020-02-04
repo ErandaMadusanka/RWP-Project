@@ -70,7 +70,7 @@ class BeachActivityController extends Controller
                 'time' => $request['time'],
                 'beach_id' => $request->input('select'),
         ]);
-        return redirect()->back()->with('message',' Beach update successfully.. ' );
+        return redirect()->back()->with('message',' Beach activity update successfully.. ' );
        
     }
     

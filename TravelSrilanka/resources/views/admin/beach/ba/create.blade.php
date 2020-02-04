@@ -52,7 +52,7 @@
 
         <div class="form-group">
             <label>Description</label>
-            <textarea style="resize: none;"  class="form-control" type="text" name="body" rows="10"> </textarea>
+            <textarea style="resize: none;"  class="form-control" type="text" name="body" rows="10" required></textarea>
         </div>
         
         <div class="form-group">

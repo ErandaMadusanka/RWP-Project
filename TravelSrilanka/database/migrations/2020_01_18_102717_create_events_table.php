@@ -17,13 +17,12 @@ class CreateEventsTable extends Migration
             $table->bigIncrements('id');
             $table->String("name");
             $table->String("description");
-            $table->String("month");
             $table->date("date");
             $table->time("time");
             $table->String("venue");
             $table->String("organized_by");
-            $table->String("website");
-            $table->integer("contact_info");
+            $table->String("website")->nullable();
+            $table->String("contact_info");
             $table->BigInteger('user_id')->unsigned();
             $table->BigInteger('city_id')->unsigned();
             $table->timestamps();

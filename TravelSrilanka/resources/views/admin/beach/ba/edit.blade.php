@@ -49,7 +49,7 @@
                 </div>
         <div class="form-group">
             <label>Description</label>
-            <textarea style="resize: none;"  class="form-control" type="text" name="body" rows="10">{{$BActivity->description}}</textarea>
+            <textarea style="resize: none;"  class="form-control" type="text" name="body" rows="10" required >{{$BActivity->description}}</textarea>
         </div>
         
         <div class="form-group">

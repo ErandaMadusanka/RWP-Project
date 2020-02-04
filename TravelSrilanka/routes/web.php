@@ -33,11 +33,22 @@
     Route::middleware('auth')->group(function () {
         
         Route::prefix('admin')->group(function(){
+
             Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
-            Route::get('/activities', 'ActivitiesController@activities');
+            // Activity
+            // <!--=========================================================================-->
+            Route::get('/activities', 'ActivitiesController@index');
+            Route::get('/activities/create', 'ActivitiesController@createView');
+            Route::post('/activities/create', 'ActivitiesController@create')->name('admin.activity.create');
+            Route::get('/activities/edit/{id}', 'ActivitiesController@editView');
+            Route::post('/activities/edit/{id}', 'ActivitiesController@edit')->name('admin.activity.edit');
+            Route::get('/activities/details/{id}', 'ActivitiesController@detailsView');
+            Route::get('/activities/delete/{id}', 'ActivitiesController@deleteView');
+            Route::get('/activities/deleteconfirm/{id}', 'ActivitiesController@delete')->name('admin.activity.delete');
+            // <!--=========================================================================-->
 
-            // BEACH
+            // Beach
             // <!--=========================================================================-->
             Route::get('/beach', 'BeachesController@index');
             Route::get('/beach/create', 'BeachesController@createView');
@@ -63,7 +74,6 @@
 
             //places
             // <!--=========================================================================-->
-            // Route::get('/places', 'PlacesController@places');
             Route::get('/places', 'PlacesController@index');
             Route::get('/places/create', 'PlacesController@createView');
             Route::post('/places/create', 'PlacesController@create')->name('admin.place.create');
@@ -74,11 +84,33 @@
             Route::get('/places/deleteconfirm/{id}', 'PlacesController@delete')->name('admin.place.delete');
             // <!--=========================================================================-->
 
-            Route::get('/events', 'EventsController@events');
-
-            Route::get('/tourpackages', 'TourPackagesController@tourpackages');
+            //Events
+            // <!--=========================================================================-->
+            Route::get('/events', 'EventsController@index');
+            Route::get('/events/create', 'EventsController@createView');
+            Route::post('/events/create', 'EventsController@create')->name('admin.event.create');
+            Route::get('/events/edit/{id}', 'EventsController@editView');
+            Route::post('/events/edit/{id}', 'EventsController@edit')->name('admin.event.edit');
+            Route::get('/events/details/{id}', 'EventsController@detailsView');
+            Route::get('/events/delete/{id}', 'EventsController@deleteView');
+            Route::get('/events/deleteconfirm/{id}', 'EventsController@delete')->name('admin.event.delete');
+            // <!--=========================================================================-->
+            
+            //National Park
+            // <!--=========================================================================-->
             Route::get('/nationalPark', 'NationalParkController@index');
+
+            // <!--=========================================================================-->
+
+            //Tour Package
+            // <!--=========================================================================-->
+            Route::get('/tourpackages', 'TourPackagesController@tourpackages');
+
+            // <!--=========================================================================-->
+           
+            
         });
+
         Route::post('/logout', 'LoginController@logout')->name('logout');
     });
 
@@ -91,9 +123,11 @@
     Route::get('/beaches', 'BeachesController@beaches');
     Route::get('/places', 'PlacesController@places');
     Route::get('/nationalParks', 'NationalParkController@nationalPark');
-    Route::get('/events', 'EventsController@index');
+    Route::get('/events', 'EventsController@events');
+    Route::get('/activities', 'ActivitiesController@activities');
+
     Route::get('/tourpackages', 'TourPackagesController@index');
-    Route::get('/activities', 'ActivitiesController@index');
+    
     
     Route::get('/udawalwe', function () {
         return view('single-blog');

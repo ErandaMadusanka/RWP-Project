@@ -17,9 +17,8 @@
     </div>
 
   <div class="container">
-  <h1> Places </h1>
-  <a href="{{ action('PlacesController@createView') }}">Create New</a>
- 
+  <h1> Activity </h1>
+  <a href="{{ action('ActivitiesController@createView') }}">Create New</a>
  
   <table class="table">
       <thead>
@@ -27,8 +26,11 @@
             <th>ID</th>
             <th>Name</th>
             <th>Discription</th>
-            <th>Latitude</th>
-            <th>Logitude</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Duration</th>
+            <th>Important Info</th>
+            <th>Guid Info</th>
             <th>User</th>
             <th>City</th>
             <th></th>
@@ -36,20 +38,22 @@
       </thead>
     </tbody>
 
-    @foreach($places as $place)
-      
+    @foreach($activities as $activity)
     <tr>
-    <td> {{$place->id }}</td>
-    <td> {{$place->name }}  </td>
-    <td> {{$place->description }} </td>
-    <td> {{$place->latitude }} </td>
-    <td> {{$place->longitude }} </td>
-    <td> {{$place->user_name }} </td>
-    <td> {{$place->city_name }} </td>
+    <td> {{$activity->id }}</td>
+    <td> {{$activity->activity_name }}  </td>
+    <td> {{$activity->description }} </td>
+    <td> {{$activity->date }} </td>
+    <td> {{$activity->time }} </td>
+    <td> {{$activity->duration }} </td>
+    <td> {{$activity->important_info }} </td>
+    <td> {{$activity->guid_info }}</td>
+    <td> {{$activity->user_name }}</td>
+    <td> {{$activity->city_name }}</td>
     <td class="float-right">
-        <a href ="{{ action('PlacesController@editView',$place->id ) }}" >Edit</a> |
-        <a href ="{{ action('PlacesController@detailsView',$place->id ) }}">Details</a> |
-        <a href ="{{ action('PlacesController@deleteView',$place->id ) }}">Delete</a>
+        <a href ="{{ action('ActivitiesController@editView',$activity->id ) }}" >Edit</a> |
+        <a href ="{{ action('ActivitiesController@detailsView',$activity->id ) }}">Details</a> |
+        <a href ="{{ action('ActivitiesController@deleteView',$activity->id ) }}">Delete</a>
     </td>
   </tr>
 

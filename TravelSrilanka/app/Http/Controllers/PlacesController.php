@@ -46,7 +46,7 @@ class PlacesController extends Controller
             'user_id' => auth()->id(),
             'city_id' => $request->input('select'),
         ]);
-        return redirect()->back()->with('message',' Beach add successfully.. ' );
+        return redirect()->back()->with('message',' Place add successfully.. ' );
     }
 
     public function editView($id){
@@ -67,7 +67,7 @@ class PlacesController extends Controller
                 'user_id' => auth()->id(),
                 'city_id' => $request->input('select'),
         ]);
-        return redirect()->back()->with('message',' Beach update successfully.. ' );
+        return redirect()->back()->with('message',' Place update successfully.. ' );
     }
 
     public function detailsView($id){
@@ -89,7 +89,7 @@ class PlacesController extends Controller
 
     public function delete($id){
         Places::where('id', $id)->delete();
-        return redirect('admin/places')->with('message', 'Beach delete succussfully..');
+        return redirect('admin/places')->with('message', 'Place delete succussfully..');
     }
 
     public function deleteView($id){

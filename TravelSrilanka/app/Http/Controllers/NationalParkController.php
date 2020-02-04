@@ -19,7 +19,7 @@ class NationalParkController extends Controller
     {
     	$province_list = DB::table('provinces')
                         ->get();
-        return view('admin.nationalPark')->with('province_list',$province_list);
+        return view('admin.nationalPark.nationalPark')->with('province_list',$province_list);
     }
  
  	function fetch(Request $request)
