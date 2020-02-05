@@ -30,11 +30,17 @@
     Route::post('admin/register', 'RegistrationController@register');
 
     // Protected Routes - allows only logged in users
-    Route::middleware('auth')->group(function () {
+    Route::middleware(['auth','is-ban'])->group(function () {
         
         Route::prefix('admin')->group(function(){
 
+            // Dashboard
+            // <!--=========================================================================-->
             Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+            Route::get('userUserRevoke/{id}', array('as'=> 'users.revokeuser', 'uses' => 'DashboardController@revoke'));
+            Route::post('userBan', array('as'=> 'users.ban', 'uses' => 'DashboardController@ban'));
+            // <!--=========================================================================-->
+
 
             // Activity
             // <!--=========================================================================-->

@@ -9,7 +9,7 @@
             <ul class="alert alert-success message">
                 <span> {{ Session::get('message') }} 
                     @php
-                    Session::forget('success');
+                    Session::forget('message');
                     @endphp
                 </span>  
             </ul>
@@ -41,13 +41,13 @@
                         <select  name="select" class="custom-select dynamic" required>
                             <option value="" > --SELECT--</option>
                             @foreach($cities as $city)
-                                <option value="{{$city->id }}"> {{$city->city_name }}</option>
+                                <option value={{$city->id }}> {{$city->city_name }}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Name</label>
-                        <input class="form-control" name="name" type="text" value={{$beach->name}} required>   
+                        <input class="form-control" name="name" type="text" value="{{$beach->name}}" required>   
                     </div>
                     
                     <div class="form-group">
@@ -57,12 +57,12 @@
                 
                     <div class="form-group">
                     <label>Latitude</label>
-                    <input class="form-control" name="latitude" type="text" value={{$beach->latitude}} required>
+                    <input class="form-control" name="latitude" type="text" value="{{$beach->latitude}}" required>
                     </div>
 
                     <div class="form-group">
                     <label>Logitude</label>
-                    <input class="form-control" name="longitude" type="text" value={{$beach->longitude}} required>
+                    <input class="form-control" name="longitude" type="text" value="{{$beach->longitude}}" required>
                     </div>
 
                     <button type="submit" class="btn btn-primary float-right">Update</button>

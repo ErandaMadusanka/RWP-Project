@@ -9,7 +9,7 @@
             <ul class="alert alert-success message">
                 <span> {{ Session::get('message') }} 
                     @php
-                    Session::forget('success');
+                    Session::forget('message');
                     @endphp
                 </span>  
             </ul>
@@ -34,10 +34,7 @@
             <th></th>
           </tr>
       </thead>
-    </tbody>
-
     @foreach($places as $place)
-      
     <tr>
     <td> {{$place->id }}</td>
     <td> {{$place->name }}  </td>

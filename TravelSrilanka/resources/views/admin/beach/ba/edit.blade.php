@@ -11,7 +11,7 @@
             <ul class="alert alert-success message">
                 <span> {{ Session::get('message') }} 
                     @php
-                    Session::forget('success');
+                    Session::forget('message');
                     @endphp
                 </span>  
             </ul>
@@ -43,7 +43,7 @@
                     <select  name="select" class="custom-select dynamic" required>
                         <option value="" >--SELECT--</option>
                         @foreach($beaches as $beaches)
-                        <option value="{{$beaches->id}}">{{$beaches->name}} </option>
+                        <option value={{$beaches->id}}>{{$beaches->name}} </option>
                         @endforeach
                     </select>
                 </div>

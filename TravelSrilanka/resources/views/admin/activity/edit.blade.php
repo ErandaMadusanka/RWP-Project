@@ -10,7 +10,7 @@
             <ul class="alert alert-success message">
                 <span> {{ Session::get('message') }} 
                     @php
-                    Session::forget('success');
+                    Session::forget('message');
                     @endphp
                 </span>  
             </ul>
@@ -34,6 +34,7 @@
             <div class ="card-body">
 
             @foreach($activities as $activity)
+        
             <form method="post" action="{{ route("admin.activity.edit",$activity->id) }}">
                     @csrf
                     <div class="form-group">
@@ -41,14 +42,14 @@
                         <select  name="select" class="custom-select dynamic" required>
                             <option value="" > --SELECT--</option>
                             @foreach($cities as $city)
-                                <option value="{{$city->id }}"> {{$city->city_name }}</option>
+                                <option value={{$city->id }}>{{$city->city_name }}</option>
                             @endforeach
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label>Name</label>
-                        <input class="form-control" type="text" name="name" value={{$activity->activity_name}} required>  
+                        <input class="form-control" type="text" name="name" value="{{$activity->activity_name}}"required>  
                     </div>
                     
                     <div class="form-group">
@@ -60,7 +61,7 @@
                             <tr>
                                 <td style="width:50%"> Date:</td>
                                 <td>
-                                    <input id="datepicker" width="276" name="date" value={{$activity->date}} required/>
+                                    <input id="datepicker" width="276" name="date" value="{{$activity->date}}"required/>
                                         <script>
                                             $('#datepicker').datepicker({
                                                 uiLibrary: 'bootstrap4'
@@ -75,7 +76,7 @@
                                 <tr>
                                     <td>Time:</td>
                                     <td>
-                                        <input id="timepicker" width="276" name="time" value={{$activity->time}} required />
+                                        <input id="timepicker" width="276" name="time" value="{{$activity->time}}" required />
                                         <script>
                                             $('#timepicker').timepicker();
                                         </script>
@@ -92,17 +93,17 @@
             
                     <div class="form-group">
                     <label>Duration</label>
-                    <input class="form-control" name="duration" type="text" value={{$activity->duration}} required>
+                    <input class="form-control" name="duration" type="text" value="{{$activity->duration}}" required>
                     </div>
 
                     <div class="form-group">
                     <label>Important info</label>
-                    <input class="form-control" type="text" name="importantinfo" value={{$activity->important_info}} required >
+                    <input class="form-control" type="text" name="importantinfo" value="{{$activity->important_info}}" required >
                     </div>
 
                     <div class="form-group">
                     <label>Guid info</label>
-                    <input class="form-control" type="text" name="guidinfo" value={{$activity->guid_info}} required>
+                    <input class="form-control" type="text" name="guidinfo" value="{{$activity->guid_info}}" required>
                     </div>
 
                     <button type="submit" class="btn btn-primary float-right">Update</button>

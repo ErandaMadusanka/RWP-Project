@@ -9,7 +9,7 @@
             <ul class="alert alert-success message">
                 <span> {{ Session::get('message') }} 
                     @php
-                    Session::forget('success');
+                    Session::forget('message');
                     @endphp
                 </span>  
             </ul>

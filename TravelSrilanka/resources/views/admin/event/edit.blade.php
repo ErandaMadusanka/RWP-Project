@@ -10,7 +10,7 @@
             <ul class="alert alert-success message">
                 <span> {{ Session::get('message') }} 
                     @php
-                    Session::forget('success');
+                    Session::forget('message');
                     @endphp
                 </span>  
             </ul>
@@ -34,7 +34,7 @@
             <div class ="card-body">
                 
                 @foreach($events as $event)
-                {{-- {{$event}} --}}
+               
             <form method="post" action="{{ route("admin.event.edit",$event->id) }}">
                     @csrf
                     <div class="form-group">
@@ -42,14 +42,14 @@
                         <select  name="select" class="custom-select dynamic" required>
                             <option value="" > --SELECT--</option>
                             @foreach($cities as $city)
-                                <option value="{{$city->id }}"> {{$city->city_name }}</option>
+                                <option value={{$city->id }}> {{$city->city_name }}</option>
                             @endforeach
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label>Name</label>
-                        <input class="form-control" type="text" name="name" value={{$event->name}} required>  
+                        <input class="form-control" type="text" name="name" value="{{$event->name}}" required>  
                     </div>
                     
                     <div class="form-group">
@@ -61,7 +61,7 @@
                             <tr>
                                 <td style="width:50%"> Date:</td>
                                 <td>
-                                    <input id="datepicker" width="276" name="date"  value={{$event->date}} required/>
+                                    <input id="datepicker" width="276" name="date"  value="{{$event->date}}" required/>
                                         <script>
                                             $('#datepicker').datepicker({
                                                 uiLibrary: 'bootstrap4'
@@ -76,7 +76,7 @@
                                 <tr>
                                     <td>Time:</td>
                                     <td>
-                                        <input id="timepicker" width="276" name="time" value={{$event->time}} required />
+                                        <input id="timepicker" width="276" name="time" value="{{$event->time}}" required />
                                         <script>
                                             $('#timepicker').timepicker();
                                         </script>
@@ -93,22 +93,22 @@
             
                     <div class="form-group">
                     <label>Venue</label>
-                    <input class="form-control" name="venue" type="text" value={{$event->venue}} required>
+                    <input class="form-control" name="venue" type="text" value="{{$event->venue}}" required>
                     </div>
 
                     <div class="form-group">
                     <label>Organized By</label>
-                    <input class="form-control" type="text" name="organizedby" value={{$event->organized_by}} required >
+                    <input class="form-control" type="text" name="organizedby" value="{{$event->organized_by}}" required >
                     </div>
 
                     <div class="form-group">
                     <label> Website</label>
-                    <input class="form-control" type="text" name="website" value={{$event->website}} required >
+                    <input class="form-control" type="text" name="website" value="{{$event->website}}" required >
                     </div>
 
                     <div class="form-group">
                     <label>Contact info</label>
-                    <input class="form-control" value={{$event->contact_info}} type='tel' pattern='\d{4}[\-]\d{6}' name="contactinfo" title='Phone Number (Format: 0112-123123 )' required >
+                    <input class="form-control" value="{{$event->contact_info}}" type='tel' pattern='\d{4}[\-]\d{6}' name="contactinfo" title='Phone Number (Format: 0112-123123 )' required >
                     {{-- <input class="form-control" type="tel" pattern="(07)[0-9]{10}" name="contactinfo" value={{$event->contact_info}} required > --}}
                     </div>
 
