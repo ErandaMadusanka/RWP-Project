@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 
 class ActivitiesController extends Controller
 {
+  
     public function index(){
         $activities= Activities::join('cities', 'activities.city_id','=','cities.id' )
         ->join('users', 'activities.user_id','=','users.id' )

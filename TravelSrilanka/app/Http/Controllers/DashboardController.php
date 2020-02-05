@@ -52,4 +52,9 @@ class DashboardController extends Controller
         return redirect()->back()
         				->with('message','User Revoke Successfully.');
     }
+
+    public function delete($id){
+        User::where('id', $id)->delete();
+        return redirect('admin/dashboard')->with('message', 'User delete succussfully..');
+    }
 }

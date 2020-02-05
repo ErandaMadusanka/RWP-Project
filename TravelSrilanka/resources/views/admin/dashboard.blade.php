@@ -30,7 +30,7 @@
             <th>Name</th>
             <th>Email</th>
             <th>Email_verified</th>
-            <th>Ban</th>
+            <th>Ban/Revoke</th>
             <th>is_Ban</th>
             <th>Delete</th>
           </tr>
@@ -56,7 +56,7 @@
           @endif
       </td>
       <td>
-          <a class="btn btn-danger  btn-sm" href="">Delete</a>
+          <a class="btn btn-danger  btn-sm" href="{{ route("admin.dashboard.delete", $admin->id) }}">Delete</a>
       </td>
     </tr>
     @endforeach
