@@ -31,8 +31,12 @@ class RegistrationController extends Controller
         // This will throw an error, since data passed to create method
         // must be an array, but $requestFileds contains an object.
         // We will fix it in next section
-        \App\User::create($requestFields);  
-    
-        return redirect('/login');
+        // \App\User::create($requestFields);  
+        \App\User::create([
+            'user_name' => $requestFields['name'],
+            'email' => $requestFields['email'],
+            'password' => $requestFields['password'],
+        ]);
+        return redirect('/admin/dashboard');
     }
 }

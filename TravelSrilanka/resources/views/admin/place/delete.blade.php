@@ -46,9 +46,5 @@
     <a href="{{ action('PlacesController@index') }}">Back to List</a>
 </form>
 @endforeach
-  {{-- <a href ="{{ action('PlacesController@editView',$place->id ) }}" method="POST" >Edit</a> |
-  <a href="{{ action('PlacesController@index') }}">Back to List</a> --}}
-{{-- container --}}
-
 
   @include('includes.adminFooter')

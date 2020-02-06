@@ -30,7 +30,7 @@ class LoginController extends Controller
         $attributes = $requestFields->only(['email','password']);
         
         if(Auth::attempt($attributes)){
-            return redirect()->route('dashboard');
+            return redirect()->route('dashboard')->with('message','Login successfully.. ' );
         }
         else{
             return redirect()->route('login')->withMessage('These credentials do not match our records.');

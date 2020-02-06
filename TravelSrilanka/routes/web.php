@@ -37,9 +37,13 @@
             // Dashboard
             // <!--=========================================================================-->
             Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+            Route::get('/create', 'DashboardController@createView');
+            Route::post('/create', 'DashboardController@create')->name('admin.dashboard.create');
             Route::get('userUserRevoke/{id}', array('as'=> 'users.revokeuser', 'uses' => 'DashboardController@revoke'));
             Route::post('userBan', array('as'=> 'users.ban', 'uses' => 'DashboardController@ban'));
-            Route::get('/userdelete{id}', 'DashboardController@delete')->name('admin.dashboard.delete');
+            Route::get('/userdelete{id}', 'DashboardController@deleteView');
+            Route::get('/deleteconfirm{id}', 'DashboardController@delete')->name('admin.dashboard.delete');
+            
             // <!--=========================================================================-->
 
 

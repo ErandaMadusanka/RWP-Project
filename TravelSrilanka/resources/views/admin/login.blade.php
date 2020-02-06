@@ -12,6 +12,7 @@
     <!--===============================================================================================-->
 
 <body>
+    
     <div class="container">
         <div class="wrapper">
             <div class="card">
@@ -26,7 +27,7 @@
                                 <ul>
                                     <li class="errorMessege"> {{ Session::get('message') }} 
                                         @php
-                                        Session::forget('success');
+                                        Session::forget('message');
                                         @endphp
                                     </li>  
                                 </ul>

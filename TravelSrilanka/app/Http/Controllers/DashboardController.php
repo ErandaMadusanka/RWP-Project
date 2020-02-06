@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-// use Illuminate\Foundation\Auth\User;
 use App\User;
 
 class DashboardController extends Controller
@@ -15,15 +14,14 @@ class DashboardController extends Controller
 
     public function index(){
         $admins = User::all();
-        return view('admin.dashboard',['admins'=>$admins]);
+        return view('admin.dashboard.index',['admins'=>$admins]);
     }
 
+    public function createView(){
+        return view('admin.dashboard.create');
+    }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
+    
     public function ban(Request $request)
     {
         $input = $request->all();
@@ -38,11 +36,7 @@ class DashboardController extends Controller
     }
 
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
+   
     public function revoke($id)
     {
         if(!empty($id)){
@@ -51,6 +45,12 @@ class DashboardController extends Controller
         }
         return redirect()->back()
         				->with('message','User Revoke Successfully.');
+    }
+
+    public function deleteView($id){
+
+        $user = User::where('id', $id)->get();
+        return view('admin.dashboard.delete',['user'=>$user]);
     }
 
     public function delete($id){

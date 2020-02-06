@@ -20,7 +20,7 @@
 
   <div class="container">
   <h1> Admins </h1>
-  <a href="" class="button text-info float-right">Register New Admin</a>
+  <a href="{{ action('DashboardController@createView') }}" class="button text-info float-right">Register New Admin</a>
  
  
   <table class="table">
@@ -56,7 +56,7 @@
           @endif
       </td>
       <td>
-          <a class="btn btn-danger  btn-sm" href="{{ route("admin.dashboard.delete", $admin->id) }}">Delete</a>
+          <a href ="{{ action('DashboardController@deleteView',$admin->id ) }}" class="btn btn-danger  btn-sm">Delete</a>
       </td>
     </tr>
     @endforeach
