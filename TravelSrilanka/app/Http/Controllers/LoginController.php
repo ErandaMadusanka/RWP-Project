@@ -33,7 +33,9 @@ class LoginController extends Controller
             return redirect()->route('dashboard')->with('message','Login successfully.. ' );
         }
         else{
-            return redirect()->route('login')->withMessage('These credentials do not match our records.');
+            return redirect()->route('login')->withErrors([
+                'email' => 'These credentials do not match our records..',
+            ]);
         }
     }
 

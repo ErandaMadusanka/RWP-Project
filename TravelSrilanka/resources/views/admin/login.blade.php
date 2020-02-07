@@ -22,29 +22,26 @@
                              @csrf
                             <div class="form-group">
                                 <label for="Email">Email address</label>
-                                <input type="email" class="form-control" name="email" placeholder="email@example.com" required>
-                                @if(Session::has('message'))   
-                                <ul>
-                                    <li class="errorMessege"> {{ Session::get('message') }} 
-                                        @php
-                                        Session::forget('message');
-                                        @endphp
-                                    </li>  
-                                </ul>
-                            @endif
+                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+                                
+                                @if ($errors->has('email'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
                            
                                 </div>
                             <div class="form-group">
                                     <label for="exampleDropdownFormPassword2">Password</label>
-                                    <input type="password" class="form-control" name="password" id="password-field" placeholder="Password" required>
+                                    <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" id="password-field" placeholder="Password" required>
                                     <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-                                    @if ($errors->any())
-                                        <ul class="errorMessege">
-                                            @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
-                                     @endif
+                                   
+                                    @if ($errors->has('password'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                                
                                 </div>
                             <div class="form-group">
                                 <div class="form-check">

@@ -35,7 +35,7 @@ class UserBanCustom
         if ($user && $user->isBanned()) {
             \Session::flush();
             return redirect('admin/login')->withInput()->withErrors([
-                'email' => 'This account is blocked.',
+                'email' => 'This account is blocked.Please contact administrator.',
             ]);
         }
         return $next($request);
